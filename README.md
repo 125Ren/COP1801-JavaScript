@@ -1,2 +1,3 @@
 Qrentella Adams
-First JavaScript Module 01
+JavaScript
+COP1801
