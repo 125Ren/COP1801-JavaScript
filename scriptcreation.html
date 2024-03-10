@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Script Creation</title>
+  <script src="jpmod_4.js"></script>
+</head>
+<body>
+  <script>
+// Prompt the consumer for the bill amount
+const billAmount = parseFloat(prompt("Enter the dollar amount of the service bill:"));
+
+// Prompt the consumer to rate the quality of service provided (Poor, Okay, or Great)
+const consumerRating = prompt("How was your viewing experience today? (Poor, Okay, or Great)").toUpperCase();
+
+// Calculate the tip amount using the customer rating
+let tipPercentage;
+switch (consumerRating) {
+  case "POOR":
+    tipPercentage = 0.1; // 10% tip for Poor service
+    break;
+  case "OKAY":
+    tipPercentage = 0.15; // 15% tip for Okay service
+    break;
+  case "GREAT":
+    tipPercentage = 0.20; // 20% tip for Great service
+    break;
+  default:
+    console.log("Thank you for taking the time to tell us about your experience. See you next time!");
+    break;
+}
+
+// Calculate the tip amount
+const tipAmount = billAmount * tipPercentage;
+
+// Display the result
+console.log(`The final bill amount, including the tip, is $${(billAmount + tipAmount).toFixed(2)}.`);
+
+function validateServiceQuality(consumerRating) {
+  const validConsumerRating = ["POOR", "OKAY", "GREAT"];
+
+  // Change the consumer rating to uppercase
+  const upperCaseConsumerRating = consumerRating.toUpperCase();
+
+  if (validConsumerRating.includes(upperCaseConsumerRating)) {
+    console.log(`Service quality: ${upperCaseConsumerRating}`);
+    // Continue calculations or perform other actions
+  } else {
+    console.error("Error: Your response is not accurate.");
+    // End the code
+  }
+}
+
+// Example usage:
+const userRating = prompt("How was your experience today? (Poor, Okay, Great)");
+validateServiceQuality(userRating);
+
+function calculateTip(serviceAmount, serviceQuality) {
+  const numericAmount = parseFloat(serviceAmount);
+
+  if (isNaN(numericAmount) || numericAmount < 5.0 || numericAmount > 500.0) {
+    console.error("Error: Your response is not accurate.");
+    return null;
+  }
+
+  const validRatings = ["POOR", "OKAY", "GREAT"];
+  const upperCaseQuality = serviceQuality.toUpperCase();
+
+  if (!validRatings.includes(upperCaseQuality)) {
+    console.error("Error: Your response is not accurate.");
+    return null;
+  }
+
+  // Calculate tip percentage based on service quality
+  let tipPercentage;
+  switch (upperCaseQuality) {
+    case "POOR":
+      tipPercentage = 0.1; // 10% tip for poor service
+      break;
+    case "OKAY":
+      tipPercentage = 0.15; // 15% tip for okay service
+      break;
+    case "GREAT":
+      tipPercentage = 0.20; // 20% tip for great service
+      break;
+  }
+
+  // Calculate tip amount
+  const tipAmount = numericAmount * tipPercentage;
+
+  // Display the result using document.write
+  document.write(`The final bill amount, including the tip, is $${(billAmount + tipAmount).toFixed(2)}.<br>`);
+  document.write(`Consumer service amount: $${billAmount.toFixed(2)}<br>`);
+  document.write(`Suggested tip amount (${consumerRating} service): $${tipAmount.toFixed(2)}.<br>`);
+  document.write(`<strong>Thank you for taking the time to provide you service rating, see you soon!</strong>`);
+
+  // Display the result
+  console.log(`Consumer service amount: $${numericAmount.toFixed(2)}`);
+  console.log(`Suggested tip amount (${upperCaseQuality} service): $${tipAmount.toFixed(2)}`);
+
+  return tipAmount;
+}
+
+// Example
+const consumerAmount = prompt("Enter the service amount (between $5.00 and $500.00):");
+const consumerQuality = prompt("How was your experience today? (Poor, Okay, or Great)");
+const tip = calculateTip(consumerAmount, consumerQuality);
+
+if (tip !== null) {
+  console.log(`Total amount (including tip): $${(parseFloat(consumerAmount) + tip).toFixed(2)}`);
+}
+  </script>
+</body>
+</html>

@@ -1,17 +1,16 @@
 var linktag = "<a href=\"http://sotd.us/qrentellaadams1/indexone.html\"> Click Here</a>";
 let myheading = "<h1>Calculating A Tip</h1>"
-let mytext = '<p>Thank you for making WeWannaBe your dining choice.</p>';
-const Poor = 10;
-const Okay = 15;
-const Great = 20;
-function decimal(x, f) {
-  return Number.parseFloat(x).toDecimal(f);
+var mytext = '<p>Thank you for making WeWannaBe your dining choice.</p>';
+sometext = "This text can be affected by other statements.",
 begineffect = "<strong>",
-endeffect = "</strong>";
+endeffect = "</strong>",
+beginpara = "<p>",
+endpara = "</p>";
 
 //
 
 document.write(myheading)
-document.write(mytext);
+document.write(begineffect + endeffect)
+document.write(beginpara + endpara)
 
 //
