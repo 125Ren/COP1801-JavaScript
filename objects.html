@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <<meta name="viewpoint" content="width=device-width, initial-scale=1"/>
+    <title>JavaScript Objects</title>
+  </head>
+  <body>
+      <h3>Favorite Fictional Dog In Animated Television Show</h3>
+
+      <script>
+          // Create an object literal for myDog
+            const myDog = {
+            Name: "Akamaru",
+            Breed: "Unknown",
+            "TV Show":"Naruto",
+            Notes: "Kiba Inuzuka's ninja dog.",
+            mySound: "Let's kick some tail, Kiba!"
+          };
+
+          // Display the dog's name using document.write
+          document.write(`Meet ${myDog.Name}! <br>`);
+          document.write(`Sound:"${myDog.mySound}"<br>`);
+
+
+          // Constructor function for creating dog objects
+          function Dog(name, breed, tvShow, notes, canTalk){
+            this.Name = name;
+            this.Breed = breed;
+            this["TV Show"] = tvShow;
+            this.canTalk = canTalk;
+            this.myGreeting = function(){
+              if(this.canTalk) {
+                return `Bark, Bark, Bark! Hi, I'm ${this.Name}. Shaking to meet you!`;
+              } else{
+                return `*tail wag* Howllldy, I'm ${this.Name}.`;
+              }
+            };
+          }
+          // Create an instance of myDogConst
+          myDogConst = new Dog("Black Hayate", "Unknown", "Fullmetal Alchemist(Japanese)", "Riza Hawkeye's dog; about the adventures of two alchemist brothers and set in a fictional universe where alchemy is an advanced scientific technique.", true);
+
+          // Call the myGreeting method
+          console.log(myDogConst.myGreeting());
+      </script>
+  </body>
+</html>
