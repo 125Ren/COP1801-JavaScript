@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Dogs</title>
+  </head>
+  <body>
+
+  <p id="dogInformation"></p>
+
+  <script>
+      // Constructor function for creating dog objects
+      function Dog(name, breed, tvShow, notes, canTalk) {
+          this.Name = name;
+          this.Breed = breed;
+          this["TV Show"] = tvShow;
+          this.canTalk = canTalk;
+          this.myGreeting = function() {
+              if (this.canTalk) {
+                  return `Bark, Bark, Bark! Hi, I'm ${this.Name}. Shaking to meet you!`;
+              } else {
+                  return `*tail wag* Howllldy, I'm ${this.Name}.`;
+              }
+          };
+      }
+
+      // Create dog objects
+      const ein = new Dog(
+          "Ein",
+          "Welsh Corgi",
+          "Cowboy Bebop (Japanese)",
+          "A highly intelligent dog; about the adventures of a group of bounty hunters traveling on their spaceship.",
+          true
+      );
+
+      const dollar = new Dog(
+          "Dollar",
+          "Dalmatian",
+          "Richie Rich",
+          "The family dog.",
+          false
+      );
+
+      // Prompt user to select a dog
+      const userInput = prompt("Please enter the name of a dog (Ein or Dollar):");
+
+      // Display selected dog's information
+      if (userInput.toLowerCase() === "ein") {
+          document.getElementById("dogInformation").textContent = ein.myGreeting();
+      } else if (userInput.toLowerCase() === "dollar") {
+          document.getElementById("dogInformation").textContent = dollar.myGreeting();
+      } else {
+          document.getElementById("dogInformation").textContent = "Error: no dog found with provided information!";
+      }
+  </script>
+</body>
+</html>
